@@ -1,0 +1,92 @@
+body {
+  background-image: url('http://app.h5.ihaozhuo.com/Alkaid/bg2.jpg');
+  background-size: cover;
+  min-height: 100vh;
+
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  *{
+    padding:0;
+    margin:0;    
+  }
+  ul{
+    list-style:none;
+  }
+  a{
+    text-decoration:none;
+    color: inherit;
+  }
+}
+.App{
+  height: 100vh;
+  overflow: hidden;
+  .app-header{
+    position: relative;
+    z-index: 10;
+    max-width: 100%;
+    background: #fff;
+    -webkit-box-shadow: 0 2px 8px rgba(255, 255, 255, 0.6);
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.6);
+    display: flex;
+    padding: 0.5rem 1.2rem;
+    height: 5vh;
+    .app-header-link{
+      display: flex;
+      align-items: center;
+    }
+    .app-header-title{
+      .app-header-title-img{
+          height: 1.8rem;
+          position: relative;
+          margin-right: 0.2rem;
+      }
+      margin-right: 1rem;
+    }
+    .app-header-search{
+
+    }
+    .app-header-search:before{
+        content: '';
+        background: #f0f0f0;
+        height: 50%;
+        width: 1px;
+        display: inline-block;
+        margin: 0 10px;
+    }
+    .app-header-nav{
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      flex: 1;
+      li{
+        padding: 0 1rem;
+        height: 2rem;
+        display: flex;
+        align-items: center;
+      }
+      li:hover{
+        background: #f6f6f6;
+      }
+      .active{
+        background: #eeeeee;
+      }
+      .app-header-nav-skin{
+        font-weight: bold;
+        font-size: 1.2rem;
+        color: #5d5d5d;
+      }
+    }
+  }
+  .app-main{
+    height: 95vh;
+    position: relative;
+  }
+}
+
+.card-box-shadow{
+  box-shadow: 2px 2px 5px 0px #dadada;
+}

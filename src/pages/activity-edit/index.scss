@@ -1,0 +1,84 @@
+.activity-edit{
+    height: 100%;
+    .activity-edit-oper{
+        border-radius: 0.5rem;
+        margin: 1rem;
+        padding: 1rem;
+        background: #fff;
+        position: absolute;
+        bottom: 2rem;
+        top: 0;
+        height: auto;
+        left: 0;
+        right: 0;
+        display: flex;
+        .activity-edit-oper-components{
+            height: 100%;
+            flex: 1;
+        }
+        .activity-edit-oper-context{
+            flex: 3;
+            display: flex;
+            #activity-edit-oper-set{
+                height: 100%;
+                flex: 1;
+                background: #f6f6f6;
+                text-align: center;
+                overflow: auto;
+                position: relative;
+                display: flex;
+                justify-content: center;
+                .activity-edit-oper-set-phone{
+                    width: 440px;
+                    height: auto;
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    margin: 0 auto;
+                    margin-top:50px;
+                }
+                .activity-edit-container{
+                    margin-top:166px;
+                    width:375px;
+                    background: #fff;
+                    height: 670px;
+                    z-index: 1;
+                }
+            }
+            #activity-edit-oper-review{
+                height: 100%;
+                flex: 1;
+            }
+    
+            // #middle {
+            //     width: 20px;
+            //     cursor: col-resize;
+            //     min-height: 767px;
+            //     position: relative;
+            // }
+            // #middle button{
+            //     cursor: col-resize;
+            //     position: fixed;
+            //     top: 50%;
+            //     color: #9999;
+            // }
+        }
+        .activity-edit-oper-components-list{
+            height: 100%;
+            overflow: hidden;
+            .activity-edit-oper-components-list-item{
+                height: 10rem;
+                border: 1px solid #eaeaea;
+                .alkaid-box{
+                    height: 50px;
+                    width:50px;
+                    // border: 1px dashed #000000;
+                    box-shadow: #000000 0px 0px 0px 1px;
+                }
+            }
+        }
+        .activity-edit-oper-components-list:hover{
+            overflow: auto;
+        }
+    }
+}

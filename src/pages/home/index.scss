@@ -1,0 +1,44 @@
+.home {
+    overflow: auto;
+    height: 100%;
+    // height: 100%;
+    .masonry {
+        -moz-column-count: 3;
+        /* Firefox */
+        -webkit-column-count: 3;
+        /* Safari 和 Chrome */
+        column-count: 3;
+        -moz-column-gap: 2em;
+        -webkit-column-gap: 2em;
+        column-gap: 2em;
+        width: 80%;
+        margin: 2em auto;
+    }
+
+    .home-masonry-card {
+        margin: 0.5em;
+        background: #fff;
+        border-radius: 0.5rem;
+        padding: 1rem;
+
+        margin-bottom: 2em;
+        -moz-page-break-inside: avoid;
+        -webkit-column-break-inside: avoid;
+        break-inside: avoid;
+        transition:all .4s;
+        display: inline-block;
+        width: 100%;
+        box-sizing: border-box;
+        .home-masonry-card-title{
+            font-size: 1rem;
+        }
+        .home-masonry-card-data{
+            height: auto;
+            width: 100%;
+            margin-top: 1rem;
+        }
+    }
+    .home-masonry-card:hover{
+        transform: scale(1.02);
+    }
+}

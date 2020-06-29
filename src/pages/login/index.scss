@@ -1,0 +1,72 @@
+
+.login{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  .login-title{
+    font-size: 5rem;
+    font-family: fantasy;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding-top: 5rem;
+    opacity: 0;
+    animation: fade-title 4s forwards 0.5s;
+    
+    @keyframes fade-title {  
+      0% {
+        opacity: 0;
+        left: 0;
+      }
+      60% {
+        opacity: 1;
+        left: 0;
+      }
+      100% {
+        opacity: 1;
+        left: -3rem;
+      }
+    }
+
+    .login-title-img{
+      height: 7.5rem;
+    }
+    .login-title-en{
+      font-size: 2rem;
+      font-family: cursive;
+      display: inline-block;
+      flex-direction: column;
+    
+      position: absolute;
+      bottom: 0;
+      display: flex;
+      align-items: center;
+      margin-left: 11rem;
+    
+      opacity: 0;
+      animation: fade-in 3s forwards 4.1s;  
+      // animation-delay: 3s;
+    }
+    @keyframes fade-in {  
+      0% {opacity: 0;}/*初始状态 透明度为0*/  
+      100% {opacity: 1;}/*结束状态 透明度为1*/  
+    }
+  }
+}
+
+.login-main{
+  width: 30rem;
+  margin: 4rem auto;
+  text-align: center;
+  font-size: 18px;
+  .login-main-item{
+    margin-bottom: 1rem;
+  }
+  .login-main-btn{
+    width: 14rem;
+    margin-top: 2rem;
+  }
+}
