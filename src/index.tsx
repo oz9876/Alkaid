@@ -2,8 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
 import App from './App';
-
-import { Provider } from 'react-redux';
+import {StoreContext} from 'redux-react-hook';
 import { createStore } from 'redux';
 
 import reducer from './redux/reducer';
@@ -37,9 +36,9 @@ const store = createStore(reducer);
  
 ReactDOM.render(
     // 2、然后使用react-redux的Provider将props与容器连通起来
-    <Provider store={ store }>
+    <StoreContext.Provider value={ store }>
         <App />
-    </Provider>
+    </StoreContext.Provider>
 , document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change

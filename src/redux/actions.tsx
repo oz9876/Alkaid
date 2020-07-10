@@ -1,5 +1,6 @@
 import { SETBGIMG, SETDRAGDATA, SETDRAGDATATODOMTREE } from './constants';
 
+// 动作
 
 export interface ISETBGIMGAction {
     type: SETBGIMG

@@ -1,9 +1,10 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useCallback} from "react";
 // import { Provider } from "react-redux";
 // import store from "./store";
 // import ReactDOM from "react-dom";
-import { connect } from 'react-redux';
-import { bindActionCreators, Dispatch } from 'redux';
+// import { connect } from 'react-redux';
+// import { bindActionCreators, Dispatch } from 'redux';
+import {useDispatch, useMappedState} from 'redux-react-hook';
 
 import {
   BrowserRouter as Router,
@@ -88,24 +89,35 @@ function Header(props: any){
 
 
 // 创建类型接口
-export interface IProps {
-  value: number,
-  bgImgTag: number,
-  setBgImg: Function
-}
+// export interface IProps {
+//   value: number,
+//   bgImgTag: number,
+//   setBgImg: Function
+// }
 
-class App extends React.PureComponent<IProps> {
-  
-  public render() {
-    const toggleSkin = () =>{
-      this.props.setBgImg()
-    }
+function App(){
+
+  const dispatch = useDispatch();
+  const toggleSkin = ()=>{
+    dispatch(setBgImg())
+  }
+  const mapState = useCallback(
+    state => ({
+      bgImgTag: state.bgImgTag
+    }),
+    [],
+);
+  const {bgImgTag} = useMappedState(mapState);
+  // public render() {
+  //   const toggleSkin = () =>{
+  //     this.props.setBgImg()
+  //   }
 
     return (
       <Router >
         <div className="App">
-          <Header toggleSkin={()=>toggleSkin()} value={this.props.value} />
-          <div className='weqweqw'>{this.props.bgImgTag}</div>
+          <Header toggleSkin={()=>toggleSkin()}/>
+          <div className='weqweqw'>{bgImgTag}</div>
           <Switch >
             <main className='app-main'>
               {routes.map((route: RouteInterface, i: number) => {
@@ -117,22 +129,26 @@ class App extends React.PureComponent<IProps> {
         </div>
       </Router>
     );
-  }
+  // }
 }
 
-function mapStateToProps(state:any) {
-  return {
-    bgImgTag: state.bgImgTag,
-  };
-}
 
-function mapDispatchToProps(dispatch:Dispatch) {
-  return bindActionCreators({
-    setBgImg,
-  }, dispatch);
-}
+export default App;
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+
+// function mapStateToProps(state:any) {
+//   return {
+//     bgImgTag: state.bgImgTag,
+//   };
+// }
+
+// function mapDispatchToProps(dispatch:Dispatch) {
+//   return bindActionCreators({
+//     setBgImg,
+//   }, dispatch);
+// }
+
+// export default connect(mapStateToProps, mapDispatchToProps)(App);
 
 
 // ReactDOM.render(

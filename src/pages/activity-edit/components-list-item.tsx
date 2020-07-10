@@ -1,9 +1,13 @@
 import React, { createElement, memo, useRef, useState } from 'react';
 // import {useHistory} from "react-router-dom";
-import { connect } from 'react-redux';
-import { bindActionCreators, Dispatch } from 'redux';
+// import { connect } from 'react-redux';
+// import { bindActionCreators, Dispatch } from 'redux';
+import {useDispatch, useMappedState} from 'redux-react-hook';
+
 import get from 'lodash/get'; // 关于get方法 https://segmentfault.com/a/1190000015605531
 import allComponents from '../../UI';
+// import config from '../../configs';
+
 import{
   setDragData, ISETDRAGDATAAction
 } from '../../redux/actions';
@@ -18,29 +22,29 @@ export interface ComponentsListItemType {
 }
 
 interface ComponentsListItemPropsType {
-  dispatch:Dispatch,
+  // dispatch:Dispatch,
   item: ComponentsListItemType,
-  setDragData: (any:any) => any
+  // setDragData: (any:any) => any
 }
 
-function ComponentsListItem(props: ComponentsListItemPropsType){
+export default function ComponentsListItem(props: ComponentsListItemPropsType){
   const {
     item,
-    dispatch,
-    setDragData
+    // dispatch,
   } = props;
+  const dispatch = useDispatch();
   const [hovered, setHovered] = useState(false);
 
   function renderComponent(item:ComponentsListItemType){
     // return item.value;
-    console.log(item.value);
-    return createElement(get(allComponents, item.value+'',''));
+    return createElement(get(allComponents, item.value+''));
   }
   function onSetDragData(item: any, event:any){
     event.stopPropagation();
-    console.log(event)
-    console.log(event.target.id)
-    setDragData({name: item.value+''})
+    console.log('onSetDragData: ', item.value)
+    dispatch(setDragData({name: item.value+''}))
+
+    // setDragData({name: item.value+''})
   }
   return (
     <ul className='activity-edit-oper-components-list-item'>
@@ -62,18 +66,18 @@ function ComponentsListItem(props: ComponentsListItemPropsType){
 
 
 
-function mapStateToProps() {
-  return {
-  };
-}
+// function mapStateToProps() {
+//   return {
+//   };
+// }
 
-function mapDispatchToProps(dispatch:Dispatch) {
-  return bindActionCreators({
-    setDragData,
-  }, dispatch);
-}
+// function mapDispatchToProps(dispatch:Dispatch) {
+//   return bindActionCreators({
+//     setDragData,
+//   }, dispatch);
+// }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(memo(ComponentsListItem, () => true));
+// export default connect(
+//   mapStateToProps,
+//   mapDispatchToProps
+// )(memo(ComponentsListItem, () => true));

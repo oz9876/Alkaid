@@ -4,17 +4,17 @@ import React from 'react';
 import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
 
-export interface BaseBoxProps {
+export interface BaseColProps {
     className?: string;
     onClick?: Function;
 }
 
-interface BoxState {
+interface ColState {
 }
 
-export type BoxProps = BaseBoxProps;
+export type ColProps = BaseColProps;
 
-class Box extends React.PureComponent<BoxProps, BoxState> {
+class Col extends React.PureComponent<ColProps, ColState> {
     static propTypes = {
         className: PropTypes.string,
         onClick: PropTypes.func,
@@ -30,15 +30,25 @@ class Box extends React.PureComponent<BoxProps, BoxState> {
             className
         } = this.props;
         const classes = classNames({
-            [`alkaid-box`]: true,
+            [`alkaid-col`]: true,
         },className);
         return (
             <div
                 className={classes}
                 onClick={this.handleClick}
-            ></div>
+            >
+                <div className={classes} >
+                <div
+                className={classes}
+                onClick={this.handleClick}
+            >
+                <div className={classes} >
+                </div>
+            </div>
+                </div>
+            </div>
         );
     }
 }
 
-export default Box;
+export default Col;
